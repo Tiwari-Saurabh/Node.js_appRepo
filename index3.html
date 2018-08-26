@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head></head>
+
+<body>
+    <h1>API REQUEST</h1>
+    <button type="button" onclick="loadDoc()">Request</button>
+</body>
+<p id="demo"></p>
+<script type="text/javascript">
+    function loadDoc() {
+        var arr = [];
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                var users = JSON.parse(this.response);
+                document.getElementById("demo").innerHTML = this.responseText;
+                // console.log(user  s);
+
+                for (i in users) {
+                    arr.push(users[i].name);
+                }
+            }
+        };
+        console.log(arr);
+        xhr.open("GET", "https://jsonplaceholder.typicode.com/users/", true);
+        xhr.send();
+
+    }
+</script>
+
+</html>
