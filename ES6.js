@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */
 // let vals = [1, 2, 3, 4, 5];
 // console.log('vals');
 
@@ -143,15 +144,15 @@ function delay(time) {
 
 function setup() {
     noCanvas();
-//     let promisces = [wordGifs(3),wordGifs(4),wordGif(5)];
-// promice.all(promices)
-// .then((results) => {
-// for(let i =0 ; i <= results.length;i++){
-// createP(results[i].Json);
-// createImg(results[i].img);
-// })
-// .catch((err) => console.log(err))
-//}
+    //     let promisces = [wordGifs(3),wordGifs(4),wordGif(5)];
+    // promice.all(promices)
+    // .then((results) => {
+    // for(let i =0 ; i <= results.length;i++){
+    // createP(results[i].Json);
+    // createImg(results[i].img);
+    // })
+    // .catch((err) => console.log(err))
+    //}
 
     wordgif().then(results => {
         createP(results.Jason);
@@ -161,6 +162,7 @@ function setup() {
 
 }
 asyn
+
 function wordgif() {
     let response1 = await fetch(WordnikAPI);
     let Json1 = await response1.Json();
@@ -174,4 +176,3 @@ function wordgif() {
 }
 
 //'&minlength=' + num + '&maxLenght=' +num
-
