@@ -1,10 +1,10 @@
 /*jshint esversion: 6 */
 const request = require('request');
-var geocodeaddress = (address, callback) => {
+var geocodeAddress = (address, callback) => {
     var encodedAddress = encodeURIComponent(address);
 
     request({
-            url: `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}`,
+            url: `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}&key=AIzaSyAqJQSVqNXLTPF2tkyOBb54yJ3qOldr1WQ`,
             json: true
         },
         (error, response, body) => {
@@ -12,7 +12,7 @@ var geocodeaddress = (address, callback) => {
                 callback("Unable to connect to Google server");
             } else if (body.status === "ZERO_RESULT") {
                 callback("Unable to find the address");
-            } else if (body.status === "ok") {
+            } else if (body.status === "OK") {
                 callback(undefined, {
                     Address: body.results[0].formatted_address,
                     Latitude: body.results[0].geometry.location.lat,
@@ -23,7 +23,9 @@ var geocodeaddress = (address, callback) => {
         });
 };
 
-module.exports.geocodeaddress = geocodeaddress;
+module.exports.geocodeAddress = geocodeAddress;
+
+
 
 
 
