@@ -17,7 +17,7 @@ var geocodeaddress = (address, callback) => {
                     Address: body.results[0].formatted_address,
                     Latitude: body.results[0].geometry.location.lat,
                     Longitude: body.results[0].geometry.location.lng
-                })
+                });
 
             }
         });
@@ -32,3 +32,4 @@ module.exports.geocodeaddress = geocodeaddress;
 // console.log(`Latitude: ${body.results[0].geometry.location.lat}`);
 // console.log(`Longitude: ${body.results[0].geometry.location.lng}`);
 // console.log(body);
+//333fe7b6659b134fa74282cf3c52e338
