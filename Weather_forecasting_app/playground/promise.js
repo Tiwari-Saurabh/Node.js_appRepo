@@ -15,13 +15,22 @@ var asyncadd = (a, b) => {
 asyncadd(6, 7).then((res) => {
     console.log('Result', res);
     return asyncadd(res, 33);
-}, (errorMessage) => {
-    console.log(errorMessage);
 }).then((res) => {
     console.log('Now result should be', res);
-}, (errorMessage) => {
+}).catch((errorMessage) => {
     console.log(errorMessage);
 });
+
+// asyncadd(6, 7).then((res) => {
+//     console.log('Result', res);
+//     return asyncadd(res, 33);
+// }, (errorMessage) => {
+//     console.log(errorMessage);
+// }).then((res) => {
+//     console.log('Now result should be', res);
+// }, (errorMessage) => {
+//     console.log(errorMessage);
+// });
 // var somePromises = new Promise((resolve, reject) => {
 //     setTimeout(() => {
 //         // resolve('Hey,It worked');
