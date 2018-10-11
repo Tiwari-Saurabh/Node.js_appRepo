@@ -8,6 +8,14 @@ var app = express();
 app.set('view engine', 'hbs');
 app.use(express.static(__dirname + '/public'));
 
+app.get('/home', (req, res) => {
+    res.render('home.hbs', {
+        Place: 'Home',
+        welcomeMessage: 'Welcome to my Website',
+        currentDate: new Date().getFullYear()
+    });
+});
+
 app.get('/', (req, res) => {
     // res.send('<h1>Hello Express!</h1>');
     res.send({
