@@ -23,7 +23,17 @@ app.use(express.static(publicDirectoryPath));
 //     res.send('<h1>About page</h1>');
 // });
 app.get('', (req, res) => {
-    res.render('index');
+    res.render('index', {
+        title: 'Weather Application',
+        name: 'Saurabh Tiwari'
+    });
+});
+
+app.get('/about', (re, res) => {
+    res.render('about', {
+        title: 'About me',
+        name: 'Saurabh Tiwari'
+    });
 });
 
 app.get('/weather', (req, res) => {
