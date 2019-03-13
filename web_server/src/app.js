@@ -5,11 +5,14 @@ const express = require("express");
 // console.log(__dirname);
 // console.log(path.join(__dirname , '../public'));
 const app = express();
+
+//Define path for Express Config
 const publicDirectoryPath = path.join(__dirname, "../public"); //to access index page i.e is home page
 const viewsPath = path.join(__dirname, "../templetes");
 
+//Sets handlerbars engine and view location
 app.set("view engine", "hbs");
-app.set("views", "viewsPath");
+app.set("views", viewsPath);
 app.use(express.static(publicDirectoryPath));
 
 // app.get('' , (req , res)=>{
