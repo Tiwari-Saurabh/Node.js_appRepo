@@ -2,13 +2,14 @@
 
 const path = require("path");
 const express = require("express");
+const hbs = require("hbs");
 // console.log(__dirname);
 // console.log(path.join(__dirname , '../public'));
 const app = express();
 
 //Define path for Express Config
 const publicDirectoryPath = path.join(__dirname, "../public"); //to access index page i.e is home page
-const viewsPath = path.join(__dirname, "../templetes");
+const viewsPath = path.join(__dirname, "../templetes/views");
 
 //Sets handlerbars engine and view location
 app.set("view engine", "hbs");
