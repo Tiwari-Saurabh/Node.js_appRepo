@@ -10,23 +10,16 @@ const app = express();
 //Define path for Express Config
 const publicDirectoryPath = path.join(__dirname, "../public"); //to access index page i.e is home page
 const viewsPath = path.join(__dirname, "../templetes/views");
+const partialsPath = path.join(__dirname, "../templetes/partials");
 
 //Sets handlerbars engine and view location
 app.set("view engine", "hbs");
 app.set("views", viewsPath);
+hbs.registerPartials(partialsPath);
+
+//Setup static directory to server
 app.use(express.static(publicDirectoryPath));
 
-// app.get('' , (req , res)=>{
-//     res.send('<h1> Welcome </h1>');
-// });
-
-// app.get('/help' , (req , res)=>{
-//     res.send('Help page');
-// });
-
-// app.get('/about' , (req , res) =>{
-//     res.send('<h1>About page</h1>');
-// });
 app.get("", (req, res) => {
   res.render("index", {
     title: "Weather Application",
@@ -58,3 +51,15 @@ app.get("/weather", (req, res) => {
 app.listen(3000, () => {
   console.log("Server is running on port 3000");
 });
+
+// app.get('' , (req , res)=>{
+//     res.send('<h1> Welcome </h1>');
+// });
+
+// app.get('/help' , (req , res)=>{
+//     res.send('Help page');
+// });
+
+// app.get('/about' , (req , res) =>{
+//     res.send('<h1>About page</h1>');
+// });
