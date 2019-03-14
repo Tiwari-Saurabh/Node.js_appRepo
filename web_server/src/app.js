@@ -49,7 +49,11 @@ app.get("/weather", (req, res) => {
 });
 
 app.get("/help/*", (req, res) => {
-  res.send("Requested Page Does Not Exist");
+  res.render("404", {
+    title: "404",
+    name: "Saurabh Tiwari",
+    errorMessage: "Requested Page Does Not Exist"
+  });
 });
 
 app.get("*", (req, res) => {
