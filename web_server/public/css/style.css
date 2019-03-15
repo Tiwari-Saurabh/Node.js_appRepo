@@ -4,6 +4,11 @@ body {
     max-width: 650px;
     margin: 0 auto;
     padding: 0 16px;
+
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
 }
 
 footer {
@@ -33,4 +38,8 @@ header a {
 .portrait {
     width: 250px;
     border-radius: 8px;
+}
+
+.main-content {
+    flex-grow: 1;
 }
