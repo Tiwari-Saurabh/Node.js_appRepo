@@ -42,9 +42,15 @@ app.get("/help", (re, res) => {
 });
 
 app.get("/weather", (req, res) => {
+  if (!req.query.address) {
+    return res.send({
+      errorMessage: "Address is required"
+    });
+  }
   res.send({
     forecasting: " It is Sunny today ",
-    location: "Pune"
+    location: "Pune",
+    address: req.query.address
   });
 });
 
@@ -53,6 +59,18 @@ app.get("/help/*", (req, res) => {
     title: "404",
     name: "Saurabh Tiwari",
     errorMessage: "Requested Page Does Not Exist"
+  });
+});
+
+app.get("/product", (req, res) => {
+  if (!req.query.search) {
+    return res.send({
+      errorMessage: "Search query required"
+    });
+  }
+  console.log(req.query.search);
+  res.send({
+    product: []
   });
 });
 
