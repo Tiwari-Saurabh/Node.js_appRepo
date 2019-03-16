@@ -3,7 +3,7 @@
 <head>
     <link rel="icon" href="/img/Weather-PNG-File.png">
     <link rel="stylesheet" href="/css/style.css">
-    <script src="/js/app.js"></script>
+
     <title>Home Page</title>
 </head>
 
@@ -12,9 +12,15 @@
         <h1>{{>header}}</h1>
 
         <p>This website is to get the weather information</p>
+        <form>
+            <input placeholder="Location">
+            <button>Search</button>
+        </form>
+
     </div>
 
     {{>footer}}
+    <script src="/js/app.js"></script>
 </body>
 
 </html>
