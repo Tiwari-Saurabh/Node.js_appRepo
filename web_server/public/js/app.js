@@ -9,6 +9,9 @@ console.log("Something for later");
 
 
 const weatherForm = document.querySelector('form');
+const search = document.querySelector('input');
+const messageone = document.querySelector('#message-1');
+const messagesecond = document.querySelector('#message-2');
 
 weatherForm.addEventListener('submit', (e) => {
 
@@ -16,13 +19,19 @@ weatherForm.addEventListener('submit', (e) => {
 
     const location = search.value;
 
-    fetch('http://localhost:3000/weather?address=').then((response) => {
+    messageone.textContent = 'Loading....';
+    messagesecond.textContent = 'hi';
+
+    fetch('http://localhost:3000/weather?address=' + location).then((response) => {
         response.json.then((data) => {
             if (data.error) {
-                console.log(data.error, "Unable to fetch the data");
+                messageone.textContent = data.error;
+                // console.log(data.error, "Unable to fetch the data");
             } else {
-                console.log(data.forecast);
-                console.lof(data.location);
+                messageone.textContent = data.location;
+                messagesecond.textContent = data.forecast;
+                // console.log(data.forecast);
+                // console.lof(data.location);
             }
         });
 
