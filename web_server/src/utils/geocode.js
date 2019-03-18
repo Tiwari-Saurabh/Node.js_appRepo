@@ -13,8 +13,8 @@ const geocode = (address, callback) => {
         console.log(body.features);
         if (error) {
             callback('Unable to connect to location services!', undefined);
-        } else if (body.features.length === 0) {
-            callback('Unable to find location. Try another search.', undefined);
+        } else if (body.message || body.features.length === 0) {
+            console.log("No point of interest found");
         } else {
             callback(undefined, {
                 latitude: body.features[0].center[1],
